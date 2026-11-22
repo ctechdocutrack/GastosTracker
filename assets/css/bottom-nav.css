@@ -1,0 +1,95 @@
+
+/* =========================================
+   GASTOSTRACKER - MOBILE BOTTOM NAVIGATION
+========================================= */
+
+.gt-bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1040;
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(255, 255, 255, 0.96);
+    border-top: 1px solid #e9eee9;
+    box-shadow: 0 -5px 24px rgba(20, 40, 25, 0.06);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.gt-bottom-nav-inner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 600px;
+    margin: 0 auto;
+    gap: 5px;
+}
+
+.gt-bottom-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 8px 4px;
+    color: #8a958e;
+    text-decoration: none;
+    border-radius: 13px;
+    transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.gt-bottom-link i {
+    font-size: 21px;
+    line-height: 1;
+}
+
+.gt-bottom-link span {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}
+
+.gt-bottom-link:hover {
+    color: #198754;
+    background: #f0f8f3;
+}
+
+.gt-bottom-link.active {
+    color: #198754;
+    background: #eaf6ee;
+}
+
+.gt-bottom-link.active i {
+    transform: translateY(-1px);
+}
+
+.gt-bottom-link:active {
+    transform: scale(0.94);
+}
+
+@media (max-width: 380px) {
+    .gt-bottom-nav {
+        padding-left: 7px;
+        padding-right: 7px;
+    }
+
+    .gt-bottom-link i {
+        font-size: 19px;
+    }
+
+    .gt-bottom-link span {
+        font-size: 9px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .gt-bottom-link {
+        transition: none;
+    }
+}
+
+@media (max-width: 991.98px) {
+    body {
+        padding-bottom: 85px;
+    }
+}

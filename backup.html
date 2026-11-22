@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Management | GastosTracker</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#198754">
+
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/bootstrap-icons/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="vendor/sweetalert2/sweetalert2.min.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/bottom-nav.css">
+    <link rel="stylesheet" href="assets/css/backup.css">
+</head>
+
+<body class="bg-light">
+
+    <div id="navbar"></div>
+
+    <div class="container" style="padding-top: 90px;">
+        <main class="backup-main container-fluid px-3 px-lg-4 py-4 pb-5">
+
+            <!-- Backup Notice -->
+            <div class="backup-notice mb-4">
+                <div class="backup-notice-icon">
+                    <i class="bi bi-shield-check"></i>
+                </div>
+                <div>
+                    <h6 class="fw-bold mb-1">Your Financial Data Matters</h6>
+                    <p class="text-secondary small mb-0">
+                        Keep a copy of your financial records. Export a backup regularly
+                        so you can restore your data whenever you need it.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Backup and Restore -->
+            <div class="row g-3 mb-4">
+
+                <!-- Export JSON -->
+                <div class="col-lg-6">
+                    <div class="backup-action-card h-100">
+                        <div class="d-flex justify-content-between align-items-start mb-4">
+                            <div class="backup-action-icon export-icon">
+                                <i class="bi bi-cloud-download"></i>
+                            </div>
+                            <span class="backup-format-badge">JSON FORMAT</span>
+                        </div>
+
+                        <h5 class="fw-bold mb-2">Export Backup</h5>
+                        <p class="text-secondary small mb-4">
+                            Download a complete copy of your financial records.
+                            Keep this file somewhere safe for future restoration.
+                        </p>
+
+                        <div class="backup-feature-list mb-4">
+                            <div>
+                                <i class="bi bi-check-circle-fill"></i>
+                                All transaction records
+                            </div>
+                            <div>
+                                <i class="bi bi-check-circle-fill"></i>
+                                Personal financial data
+                            </div>
+                            <div>
+                                <i class="bi bi-check-circle-fill"></i>
+                                Portable backup file
+                            </div>
+                        </div>
+
+                        <button type="button" id="exportBackup" class="btn btn-success w-100 rounded-pill py-2 fw-semibold">
+                            <i class="bi bi-download me-2"></i>Download JSON Backup
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Restore JSON -->
+                <div class="col-lg-6">
+                    <div class="backup-action-card h-100">
+                        <div class="d-flex justify-content-between align-items-start mb-4">
+                            <div class="backup-action-icon restore-icon">
+                                <i class="bi bi-cloud-upload"></i>
+                            </div>
+                            <span class="backup-format-badge">JSON FORMAT</span>
+                        </div>
+
+                        <h5 class="fw-bold mb-2">Restore Backup</h5>
+                        <p class="text-secondary small mb-4">
+                            Recover your previous financial records using a
+                            GastosTracker JSON backup file.
+                        </p>
+
+                        <div class="backup-upload-area mb-3">
+                            <i class="bi bi-file-earmark-arrow-up"></i>
+                            <span class="fw-semibold">Choose your backup file</span>
+                            <small class="text-secondary">JSON files only</small>
+                            <input type="file" class="form-control mt-3" id="backupFile" accept=".json">
+                        </div>
+
+                        <button type="button" id="restoreBackup" class="btn btn-outline-success w-100 rounded-pill py-2 fw-semibold">
+                            <i class="bi bi-arrow-repeat me-2"></i>Restore Data
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Excel Export -->
+            <div class="backup-excel-card mb-4">
+                <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="backup-action-icon excel-icon">
+                            <i class="bi bi-file-earmark-spreadsheet"></i>
+                        </div>
+                        <div>
+                            <h5 class="fw-bold mb-1">Export to Excel</h5>
+                            <p class="text-secondary small mb-0">
+                                Create a spreadsheet copy of your financial activity.
+                            </p>
+                        </div>
+                    </div>
+
+                    <button type="button" id="exportExcel" class="btn btn-outline-success rounded-pill px-4 py-2 fw-semibold">
+                        <i class="bi bi-file-earmark-excel me-2"></i>Export Excel
+                    </button>
+                </div>
+            </div>
+
+            <!-- Storage Overview -->
+            <div class="backup-panel mb-4">
+                <div class="d-flex align-items-center gap-2 mb-4">
+                    <div class="backup-section-icon">
+                        <i class="bi bi-database"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold mb-0">Storage Overview</h5>
+                        <small class="text-secondary">Your current local data information</small>
+                    </div>
+                </div>
+
+                <div class="row g-3">
+
+                    <div class="col-md-4">
+                        <div class="storage-info-card">
+                            <div class="storage-info-icon">
+                                <i class="bi bi-receipt"></i>
+                            </div>
+                            <p class="text-secondary small mb-1">Total Transactions</p>
+                            <h4 class="fw-bold mb-0" id="totalTransactions">0</h4>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="storage-info-card">
+                            <div class="storage-info-icon">
+                                <i class="bi bi-clock-history"></i>
+                            </div>
+                            <p class="text-secondary small mb-1">Last Backup</p>
+                            <h6 class="fw-bold mb-0" id="lastBackup">No backup yet</h6>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="storage-info-card">
+                            <div class="storage-info-icon">
+                                <i class="bi bi-hdd"></i>
+                            </div>
+                            <p class="text-secondary small mb-1">Storage Type</p>
+                            <h6 class="fw-bold mb-0">Browser LocalStorage</h6>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Danger Zone -->
+            <div class="backup-danger-panel">
+                <div class="d-flex flex-wrap justify-content-between align-items-start gap-3">
+                    <div class="d-flex align-items-start gap-3">
+                        <div class="backup-danger-icon">
+                            <i class="bi bi-exclamation-triangle"></i>
+                        </div>
+                        <div>
+                            <h5 class="fw-bold text-danger mb-1">Danger Zone</h5>
+                            <p class="text-secondary small mb-0">
+                                Permanently delete all financial records stored on this device.
+                                This action cannot be undone.
+                            </p>
+                        </div>
+                    </div>
+
+                    <button type="button" id="clearAllData" class="btn btn-outline-danger rounded-pill px-4 py-2 fw-semibold">
+                        <i class="bi bi-trash me-2"></i>Clear All Data
+                    </button>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <div id="bottom-nav"></div>
+
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/backup.js"></script>
+
+</body>
+</html>

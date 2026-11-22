@@ -1,0 +1,103 @@
+
+/* DASHBOARD MAIN */
+.dashboard-main {
+    animation: dashboardEnter 0.65s ease-out;
+}
+
+@keyframes dashboardEnter {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* BALANCE CARD */
+.balance-card {
+    background: linear-gradient(120deg, #064e3b 0%, #047857 55%, #10b981 100%);
+    position: relative;
+}
+
+.balance-card::after {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+    top: -150px;
+    right: -70px;
+    box-shadow: 0 0 0 35px rgba(255, 255, 255, 0.04),
+                0 0 0 70px rgba(255, 255, 255, 0.025);
+    pointer-events: none;
+}
+
+.balance-icon {
+    width: 65px;
+    height: 65px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.balance-subcard {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+}
+
+/* SUMMARY CARDS */
+.summary-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.summary-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08) !important;
+}
+
+.summary-icon {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.income-icon {
+    background: rgba(25, 135, 84, 0.10);
+    color: #198754;
+}
+
+.expense-icon {
+    background: rgba(220, 53, 69, 0.10);
+    color: #dc3545;
+}
+
+/* RESPONSIVE */
+@media (max-width: 576px) {
+
+    .balance-card .display-4 {
+        font-size: 2.1rem;
+    }
+
+    .balance-subcard h4 {
+        font-size: 1rem;
+    }
+
+    .summary-card h3 {
+        font-size: 1.1rem;
+    }
+}
+
+/* ACCESSIBILITY */
+@media (prefers-reduced-motion: reduce) {
+    .dashboard-main,
+    .summary-card,
+    .quick-action-item {
+        animation: none !important;
+        transition: none !important;
+    }
+}

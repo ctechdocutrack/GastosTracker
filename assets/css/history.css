@@ -1,0 +1,244 @@
+
+/* =========================================
+   GASTOSTRACKER - TRANSACTION HISTORY
+========================================= */
+
+.history-main {
+    animation: historyEnter 0.5s ease both;
+}
+
+@keyframes historyEnter {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Page Heading */
+
+.history-heading-icon {
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #198754;
+    background: rgba(25, 135, 84, 0.10);
+    border-radius: 10px;
+}
+
+/* Summary Cards */
+
+.history-summary-card {
+    position: relative;
+    overflow: hidden;
+    padding: 26px;
+    background: #ffffff;
+    border: 1px solid #e9eee9;
+    border-radius: 18px;
+    box-shadow: 0 4px 18px rgba(20, 40, 25, 0.035);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.history-summary-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(20, 40, 25, 0.08);
+}
+
+.history-summary-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    font-size: 23px;
+}
+
+.income-icon {
+    color: #198754;
+    background: rgba(25, 135, 84, 0.10);
+}
+
+.expense-icon {
+    color: #dc3545;
+    background: rgba(220, 53, 69, 0.09);
+}
+
+/* Main Panels */
+
+.history-panel {
+    padding: 25px;
+    background: #ffffff;
+    border: 1px solid #e9eee9;
+    border-radius: 18px;
+    box-shadow: 0 4px 18px rgba(20, 40, 25, 0.035);
+}
+
+/* Form Controls */
+
+.history-panel .form-label {
+    color: #495057;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 7px;
+}
+
+.history-panel .form-control,
+.history-panel .form-select {
+    min-height: 44px;
+    border-color: #e1e7e2;
+    border-radius: 10px;
+    font-size: 13px;
+    box-shadow: none;
+}
+
+.history-panel .form-control:focus,
+.history-panel .form-select:focus {
+    border-color: #198754;
+    box-shadow: 0 0 0 3px rgba(25, 135, 84, 0.10);
+}
+
+.history-input-group .input-group-text {
+    color: #198754;
+    background: #f7faf8;
+    border-color: #e1e7e2;
+    border-radius: 10px 0 0 10px;
+}
+
+.history-input-group .form-control {
+    border-radius: 0 10px 10px 0;
+}
+
+.history-reset-btn {
+    min-height: 44px;
+    border-radius: 10px;
+    color: #59645d;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.history-reset-btn:hover {
+    color: #198754;
+    background: #f0f8f3;
+    border-color: #b9d9c5;
+}
+
+/* Transaction Count */
+
+.history-count {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 13px;
+    color: #198754;
+    background: rgba(25, 135, 84, 0.08);
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Transactions Table */
+
+.history-table {
+    min-width: 750px;
+}
+
+.history-table thead th {
+    padding: 15px 14px;
+    color: #758078;
+    background: #f7faf8;
+    border-bottom: 1px solid #e9eee9;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.history-table tbody td {
+    padding: 14px;
+    border-bottom-color: #f0f2f0;
+    font-size: 13px;
+}
+
+.history-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+/* Empty State */
+
+.history-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 55px 20px;
+    text-align: center;
+}
+
+.history-empty-icon {
+    width: 68px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    color: #198754;
+    background: #edf7f0;
+    border-radius: 22px;
+    font-size: 29px;
+}
+
+/* Buttons */
+
+.history-main .btn-success {
+    background: #198754;
+    border-color: #198754;
+    transition: all 0.2s ease;
+}
+
+.history-main .btn-success:hover {
+    background: #146c43;
+    border-color: #146c43;
+    transform: translateY(-1px);
+}
+
+/* Responsive */
+
+@media (max-width: 767.98px) {
+    .history-main {
+        padding-top: 24px !important;
+    }
+
+    .history-panel {
+        padding: 20px;
+    }
+
+    .history-summary-card h3 {
+        font-size: 23px;
+    }
+
+    .history-main > div:first-child .btn {
+        width: 100%;
+    }
+
+    .history-empty-state {
+        padding: 40px 15px;
+    }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    .history-main,
+    .history-summary-card,
+    .history-main .btn-success {
+        animation: none;
+        transition: none;
+    }
+}

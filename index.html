@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GastosTracker App</title>
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#198754">
+
+
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/bootstrap-icons/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/bottom-nav.css">
+    <link rel="stylesheet" href="assets/css/index.css">
+</head>
+
+<body class="bg-light">
+
+    <div id="navbar"></div>
+    
+    <div class="container" style="padding-top: 90px;">
+        <div class="row">
+       
+        <!-- Main Content -->
+        <main class="col-12 p-3 p-lg-4 pb-5 dashboard-main">
+
+            <!-- Main Balance Card -->
+            <div class="card border-0 rounded-4 shadow-lg text-white mb-4 balance-card overflow-hidden">
+                <div class="card-body p-4 p-lg-5 position-relative">
+
+                    <div class="d-flex justify-content-between align-items-start flex-wrap gap-3">
+                        <div>
+                            <span class="small text-white-50 fw-semibold text-uppercase">
+                                Total Remaining Balance
+                            </span>
+                            <h1 class="display-4 fw-bold mt-2 mb-0" id="balance">₱6,950.00</h1>
+                            <p class="small text-white-50 mt-2 mb-0">
+                                <i class="bi bi-wallet2 me-1"></i>Your available money
+                            </p>
+                        </div>
+
+                        <div class="balance-icon rounded-4 d-flex align-items-center justify-content-center">
+                            <i class="bi bi-wallet2 fs-2"></i>
+                        </div>
+                    </div>
+
+                    <hr class="border-white opacity-25 my-4">
+
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <div class="balance-subcard rounded-4 p-3">
+                                <div class="d-flex align-items-center gap-2 mb-2">
+                                    <i class="bi bi-bank"></i>
+                                    <span class="small text-white-50">Bank Balance</span>
+                                </div>
+                                <h4 class="fw-bold mb-0" id="bankBalance">₱6,750.00</h4>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="balance-subcard rounded-4 p-3">
+                                <div class="d-flex align-items-center gap-2 mb-2">
+                                    <i class="bi bi-cash-stack"></i>
+                                    <span class="small text-white-50">Cash on Hand</span>
+                                </div>
+                                <h4 class="fw-bold mb-0" id="cashBalance">₱200.00</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Income and Expense Summary -->
+            <div class="row g-3 g-lg-4 mb-4">
+
+                <!-- Income -->
+                <div class="col-6">
+                    <div class="card border-0 rounded-4 shadow-sm h-100 summary-card income-card">
+                        <div class="card-body p-3 p-md-4">
+
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="summary-icon income-icon rounded-3">
+                                    <i class="bi bi-graph-up-arrow fs-5"></i>
+                                </div>
+                                <span class="badge rounded-pill bg-success bg-opacity-10 text-success">
+                                    Income
+                                </span>
+                            </div>
+
+                            <p class="text-secondary small mb-1">Total Income</p>
+                            <h3 class="fw-bold text-success mb-0" id="income">₱22,400.00</h3>
+                            <small class="text-secondary">Money received</small>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expenses -->
+                <div class="col-6">
+                    <div class="card border-0 rounded-4 shadow-sm h-100 summary-card expense-card">
+                        <div class="card-body p-3 p-md-4">
+
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="summary-icon expense-icon rounded-3">
+                                    <i class="bi bi-graph-down-arrow fs-5"></i>
+                                </div>
+                                <span class="badge rounded-pill bg-danger bg-opacity-10 text-danger">
+                                    Expenses
+                                </span>
+                            </div>
+
+                            <p class="text-secondary small mb-1">Total Expenses</p>
+                            <h3 class="fw-bold text-danger mb-0" id="expenses">₱13,150.00</h3>
+                            <small class="text-secondary">Money spent</small>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+
+
+        </div>
+        <div id="bottom-nav"></div>
+    </div>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/index.js"></script>
+
+</body>
+</html>

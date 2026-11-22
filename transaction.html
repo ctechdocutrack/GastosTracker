@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Transaction | GastosTracker</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#198754">
+
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/bootstrap-icons/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="vendor/sweetalert2/sweetalert2.min.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/bottom-nav.css">
+    <link rel="stylesheet" href="assets/css/transaction.css">
+</head>
+
+<body class="bg-light">
+
+    <div id="navbar"></div>
+
+    <div class="container" style="padding-top: 90px;">
+        
+        <!-- Main Content -->
+        <main class="container py-4 pb-5 transaction-main">
+
+            <div class="row g-4">
+
+                <!-- Transaction Form -->
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm rounded-4 transaction-form-card">
+                        <div class="card-body p-3 p-md-4 p-xl-5">
+
+                            <div class="d-flex align-items-center gap-3 mb-4">
+                                <div class="transaction-heading-icon rounded-3">
+                                    <i class="bi bi-pencil-square fs-4"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold mb-1">Transaction Details</h5>
+                                    <p class="text-secondary small mb-0">Enter the information below.</p>
+                                </div>
+                            </div>
+
+                            <form id="transactionForm">
+
+                                <!-- Transaction Type -->
+                                <div class="mb-4">
+                                    <label class="form-label fw-semibold">Transaction Type</label>
+
+                                    <div class="row g-3">
+
+                                        <div class="col-6">
+                                            <input type="radio" class="btn-check" name="type" id="incomeType" value="income" checked>
+
+                                            <label class="transaction-type-option income-option w-100 rounded-4 p-3" for="incomeType">
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="type-icon income-type-icon rounded-3">
+                                                        <i class="bi bi-arrow-down-left fs-5"></i>
+                                                    </div>
+                                                    <div>
+                                                        <span class="fw-bold d-block">Income</span>
+                                                        <small class="text-secondary">Money received</small>
+                                                    </div>
+                                                </div>
+                                            </label>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <input type="radio" class="btn-check" name="type" id="expenseType" value="expense">
+
+                                            <label class="transaction-type-option expense-option w-100 rounded-4 p-3" for="expenseType">
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="type-icon expense-type-icon rounded-3">
+                                                        <i class="bi bi-arrow-up-right fs-5"></i>
+                                                    </div>
+                                                    <div>
+                                                        <span class="fw-bold d-block">Expense</span>
+                                                        <small class="text-secondary">Money spent</small>
+                                                    </div>
+                                                </div>
+                                            </label>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <hr class="border-light my-4">
+
+                                <!-- Description -->
+                                <div class="mb-4">
+                                    <label for="description" class="form-label fw-semibold">Description</label>
+                                    <div class="input-group transaction-input-group">
+                                        <span class="input-group-text">
+                                            <i class="bi bi-card-text"></i>
+                                        </span>
+                                        <input type="text" class="form-control" id="description" placeholder="e.g. Monthly Salary" required>
+                                    </div>
+                                </div>
+
+                                <!-- Amount -->
+                                <div class="mb-4">
+                                    <label for="amount" class="form-label fw-semibold">Amount</label>
+                                    <div class="input-group transaction-input-group">
+                                        <span class="input-group-text fw-semibold">₱</span>
+                                        <input type="number" class="form-control" id="amount" placeholder="0.00" min="0.01" step="0.01" required>
+                                    </div>
+                                    <small class="text-secondary mt-2 d-block">Enter the amount in Philippine Peso.</small>
+                                </div>
+
+                                <!-- Date and Time -->
+                                <div class="mb-4">
+                                    <label for="date" class="form-label fw-semibold">Date and Time</label>
+                                    <div class="input-group transaction-input-group">
+                                        <span class="input-group-text">
+                                            <i class="bi bi-calendar-event"></i>
+                                        </span>
+                                        <input type="datetime-local" class="form-control" id="date" required>
+                                    </div>
+                                </div>
+
+                                <!-- Payment Method -->
+                                <div class="mb-4">
+                                    <label for="paymentMethod" class="form-label fw-semibold">Payment Method</label>
+                                    <div class="input-group transaction-input-group">
+                                        <span class="input-group-text">
+                                            <i class="bi bi-wallet2"></i>
+                                        </span>
+                                        <select class="form-select" id="paymentMethod" required>
+                                            <option value="" selected disabled>Select payment method</option>
+                                            <option value="Cash">Cash</option>
+                                            <option value="Bank">Bank</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <hr class="border-light my-4">
+
+                                <!-- Form Buttons -->
+                                <div class="d-flex flex-column flex-sm-row gap-2">
+                                    <a href="index.html" class="btn btn-light border rounded-pill py-3 px-4 flex-fill">
+                                        Cancel
+                                    </a>
+
+                                    <button type="submit" class="btn btn-success rounded-pill py-3 px-4 flex-fill fw-semibold">
+                                        <i class="bi bi-check-circle me-2"></i>Save Transaction
+                                    </button>
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Side Information -->
+                <div class="col-lg-4">
+
+                    <div class="card border-0 rounded-4 shadow-sm transaction-info-card mb-4">
+                        <div class="card-body p-4">
+
+                            <div class="transaction-info-icon rounded-3 mb-3">
+                                <i class="bi bi-lightbulb fs-4"></i>
+                            </div>
+
+                            <h5 class="fw-bold mb-2">Keep Track of Your Money</h5>
+                            <p class="text-secondary small mb-0">
+                                Record every income and expense to maintain an accurate picture of your finances.
+                            </p>
+
+                            <hr class="my-4">
+
+                            <div class="d-flex gap-3 mb-3">
+                                <i class="bi bi-check-circle-fill text-success"></i>
+                                <div>
+                                    <span class="fw-semibold d-block small">Choose the right type</span>
+                                    <small class="text-secondary">Identify whether money comes in or goes out.</small>
+                                </div>
+                            </div>
+
+                            <div class="d-flex gap-3 mb-3">
+                                <i class="bi bi-check-circle-fill text-success"></i>
+                                <div>
+                                    <span class="fw-semibold d-block small">Use clear descriptions</span>
+                                    <small class="text-secondary">Make transactions easier to recognize later.</small>
+                                </div>
+                            </div>
+
+                            <div class="d-flex gap-3">
+                                <i class="bi bi-check-circle-fill text-success"></i>
+                                <div>
+                                    <span class="fw-semibold d-block small">Select the correct payment method</span>
+                                    <small class="text-secondary">Keep cash and bank balances organized.</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="card border-0 rounded-4 transaction-security-card">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <i class="bi bi-shield-check text-success fs-4"></i>
+                                <span class="fw-bold">Your Money, Your Records</span>
+                            </div>
+                            <p class="text-secondary small mb-0">
+                                GastosTracker is designed to help you manage your personal financial records offline.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <div id="bottom-nav"></div>
+
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/transaction.js"></script>
+
+</body>
+</html>
